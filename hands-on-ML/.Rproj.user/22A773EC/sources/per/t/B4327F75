@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1616025317797.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "903185893",
+    "id" : "B4327F75",
+    "lastKnownWriteTime" : 1616337291,
+    "last_content_update" : 1616337291821,
+    "path" : "~/data_science/hands-on-ML/regularized-regression.R",
+    "project_path" : "regularized-regression.R",
+    "properties" : {
+        "cursorPosition" : "84,0",
+        "scrollLine" : "74",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

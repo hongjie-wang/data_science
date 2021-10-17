@@ -1,0 +1,331 @@
+[0m[0K]0;:/c/Users/hongjie/Documents/data_science/bayesian-network[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git co[0K[?25hn[0Kf[0Ki[0Kg[0K[14G[?25l$ git config -[0K[?25h-[0Kg[0Kl[0Ko[0Kb[0Ka[0Kl[0K[23G[?25l$ git config --global h[0K[?25ho[0Kn[0Kg[0Kji[0Ke[0K-[0Kw[0Ka[0Kn[0Kg[0K[36G[35G[?25l$ git config --global hongjie-wan[0K[?25h[?25l$ git config --global hongjie-wa[0K[?25h[?25l$ git config --global hongjie-w[0K[?25h[?25l$ git config --global hongjie[0K[?25h[?25l$ git config --global hongji[0K[?25h[?25l$ git config --global hongj[0K[?25h[?25l$ git config --global hong[0K[?25h[?25l$ git config --global hon[0K[?25h[?25l$ git config --global ho[0K[?25h[?25l$ git config --global h[0K[?25h[?25l$ git config --global[0K[23G[?25h[?25l$ git config --global u[0K[?25hs[0Ke[0Kr[0K.[0Kn[0Ka[0Km[0Ke[0K[33G[?25l$ git config --global user.name "[0K[?25hh[0Ko[0Kn[0Kg[0Kj[0Ki[0Ke[0K=[0K[?25l$ git config --global user.name "hongjie[0K[?25h-[0Kw[0Ka[0Kn[0Kg[0K"[0K[?25l
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Kn[0Kf[0Ki[0Kg[0K[14G[?25l$ git config -[0K[?25h-[0Kb[0Kl[0Ko[0K[?25l$ git config --bl[0K[?25h[?25l$ git config --b[0K[?25h[?25l$ git config --[0K[?25hg[0Kl[0Ko[0Kb[0Ka[0Kl[0K[23G[?25l$ git config --global u[0K[?25hs[0Ke[0Kr[0K.[0Km[0Ka[0Ki[0Kl[0K[33G[?25l$ git config --global user.mail "[0K[?25hh[0Ko[0Kn[0Kgj[0Ki[0Ke[0K.[0Kj[0K.[0Kw[0Ka[0Kn[0Kg[0K@[0Kg[0Km[0Ka[0Ki[0Kl[0K.[0Kc[0Ko[0Km[0K"[0K[?25l
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch main[0K[?25l
+Your branch is up to date with 'origin/main'.[0K
+[0K
+Changes to be committed:[0K
+  (use "git restore --staged <file>..." to unstage)[0K
+        [0;32mnew file:   airline yield management.R[0m[0K
+        [0;32mnew file:   alarm.R[0m[0K
+        [0;32mnew file:   bayesian-network.Rproj[0m[0K
+        [0;32mnew file:   causal inf exp1.R[0m[0K
+        [0;32mnew file:   causal inf exp2.R[0m[0K
+        [0;32mnew file:   creditcard.R[0m[0K
+        [0;32mnew file:   customer counts.R[0m[0K
+        [0;32mnew file:   dynamic regression.r[0m[0K
+        [0;32mnew file:   football bet information link.R[0m[0K
+        [0;32mnew file:   football bet optimal decision.R[0m[0K
+        [0;32mnew file:   football bet.R[0m[0K
+        [0;32mnew file:   instrument var.R[0m[0K
+        [0;32mnew file:   instrument var1.R[0m[0K
+        [0;32mnew file:   instrument var2.R[0m[0K
+        [0;32mnew file:   instrument var3.R[0m[0K
+        [0;32mnew file:   kantar.r[0m[0K
+        [0;32mnew file:   learning dynamic regression.R[0m[0K
+        [0;32mnew file:   marketing budget  influence diagram.R[0m[0K
+        [0;32mnew file:   optimal test size.R[0m[0K
+        [0;32mnew file:   real estate investment.Rmd[0m[0K
+        [0;32mnew file:   reliability test two stage.R[0m[0K
+        [0;32mnew file:   reliability test.R[0m[0K
+        [0;32mnew file:   sensor hidden markov.R[0m[0K
+        [0;32mnew file:   simple bayesian update.R[0m[0K
+        [0;32mnew file:   stress test.R[0m[0K
+        [0;32mnew file:   wildcatter.R[0m[0K
+        [0;32mnew file:   wildcatter1.R[0m[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be committed)[0K
+        [0;31m.gitignore[0m[0K
+        [0;31mtemp.R[0m[0K
+        [0;31mtest.R[0m[0K
+[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add a[0K[?25hi[0Kr[0K[?25l$ git add ai[0K[?25h[?25l$ git add a[0K[?25hl[0Ka[0Kr[0Km[0K.[0Kr[0K[?25l
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ d[0K[?25hi[0Kt[0K[?25l$ di[0K[?25h[?25l$ d[0K[?25h[?25l$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch main[0K[?25l
+Your branch is up to date with 'origin/main'.[0K
+[0K
+Changes to be committed:[0K
+  (use "git restore --staged <file>..." to unstage)[0K
+        [0;32mnew file:   airline yield management.R[0m[0K
+        [0;32mnew file:   alarm.R[0m[0K
+        [0;32mnew file:   bayesian-network.Rproj[0m[0K
+        [0;32mnew file:   causal inf exp1.R[0m[0K
+        [0;32mnew file:   causal inf exp2.R[0m[0K
+        [0;32mnew file:   creditcard.R[0m[0K
+        [0;32mnew file:   customer counts.R[0m[0K
+        [0;32mnew file:   dynamic regression.r[0m[0K
+        [0;32mnew file:   football bet information link.R[0m[0K
+        [0;32mnew file:   football bet optimal decision.R[0m[0K
+        [0;32mnew file:   football bet.R[0m[0K
+        [0;32mnew file:   instrument var.R[0m[0K
+        [0;32mnew file:   instrument var1.R[0m[0K
+        [0;32mnew file:   instrument var2.R[0m[0K
+        [0;32mnew file:   instrument var3.R[0m[0K
+        [0;32mnew file:   kantar.r[0m[0K
+        [0;32mnew file:   learning dynamic regression.R[0m[0K
+        [0;32mnew file:   marketing budget  influence diagram.R[0m[0K
+        [0;32mnew file:   optimal test size.R[0m[0K
+        [0;32mnew file:   real estate investment.Rmd[0m[0K
+        [0;32mnew file:   reliability test two stage.R[0m[0K
+        [0;32mnew file:   reliability test.R[0m[0K
+        [0;32mnew file:   sensor hidden markov.R[0m[0K
+        [0;32mnew file:   simple bayesian update.R[0m[0K
+        [0;32mnew file:   stress test.R[0m[0K
+        [0;32mnew file:   wildcatter.R[0m[0K
+        [0;32mnew file:   wildcatter1.R[0m[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be committed)[0K
+        [0;31m.gitignore[0m[0K
+        [0;31mtemp.R[0m[0K
+        [0;31mtest.R[0m[0K
+[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add *[0K[?25h[?25l
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25h[19G[18G[?25l$ git commit -m "I[0K[?25hn[0Ki[0Kt[0Ki[0Ka[0Kl[0K[26G[?25l$ git commit -m "Initial c[0K[?25ho[0Km[0Km[0Ki[0Kt[0Ks[0K"[0K[35G[?25l
+[0K[?25hAuthor identity unknown[0K[?25l
+[0K
+*** Please tell me who you are.[0K
+[0K
+Run[0K
+[0K
+  git config --global user.email "you@example.com"[0K
+  git config --global user.name "Your Name"[0K
+[0K
+to set your account's default identity.[0K
+Omit --global to set the identity only in this repository.[0K
+[0K
+fatal: unable to auto-detect email address (got 'hongjie@hongjie-PC.(none)')[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25h[?25l$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Kn[0Kf[0Ki[0Kg[0K[14G[?25l$ git config -[0K[?25h-[0Kg[0Kl[0Ka[0Ko[0K[?25l$ git config --gla[0K[?25h[?25l$ git config --gl[0K[?25h[?25l$ git config --g[0K[?25hl[0Ko[0Kb[0Ka[0Kl[0K[23G[?25l$ git config --global h[0K[?25ho[0Kn[0Kg[0Kj[0Ki[0Ke[0K.[0Kj[0K.[0Kw[0Ka[0Kn[0Kg[0K@[0Kg[0Km[0Ka[0Ki[0Kl[0K.[0K[?25l$ git config --global hongjie.j.wang@gmail[0K[?25h[?25l$ git config --global hongjie.j.wang@gmai[0K[?25h[?25l$ git config --global hongjie.j.wang@gma[0K[?25h[?25l$ git config --global hongjie.j.wang@gm[0K[?25h[?25l$ git config --global hongjie.j.wang@g[0K[?25h[?25l$ git config --global hongjie.j.wang@[0K[?25h[?25l$ git config --global hongjie.j.wang[0K[?25h[?25l$ git config --global hongjie.j.wan[0K[?25h[?25l$ git config --global hongjie.j.wa[0K[?25h[?25l$ git config --global hongjie.j.w[0K[?25h[?25l$ git config --global hongjie.j.[0K[?25h[?25l$ git config --global hongjie.j[0K[?25h[?25l$ git config --global hongjie.[0K[?25h[?25l$ git config --global hongjie[0K[?25h[?25l$ git config --global hongji[0K[?25h[?25l$ git config --global hongj[0K[?25h[?25l$ git config --global hong[0K[?25h[?25l$ git config --global hon[0K[?25h[?25l$ git config --global ho[0K[?25h[?25l$ git config --global h[0K[?25h[?25l$ git config --global[0K[23G[?25h[?25l$ git config --global u[0K[?25hs[0Ke[0Kr[0K.[0Ke[0Km[0Ka[0Ki[0Kl[0K[34G[?25l$ git config --global user.email h[0K[?25ho[0Kn[0Kg[0Kj[0Ki[0Ke[0K.[0K[?25l$ git config --global user.email hongjie[0K[?25h[?25l$ git config --global user.email hongji[0K[?25h[?25l$ git config --global user.email hongj[0K[?25h[?25l$ git config --global user.email hong[0K[?25h[?25l$ git config --global user.email hon[0K[?25h[?25l$ git config --global user.email ho[0K[?25h[?25l$ git config --global user.email h[0K[?25h[?25l$ git config --global user.email[0K[34G[?25h[?25l$ git config --global user.email "[0K[?25hh[0K[?25l$ git config --global user.email "[0K[?25hh[0Ko[0Kn[0Kg[0Kj[0Ki[0Ke[0K.[0Kj[0K.[0Kw[0Ka[0Kn[0Kg[0K@[0Kg[0Km[0Ka[0Ki[0Kl[0K.[0Kc[0Ko[0Km[0K"[0K[?25l
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25hi[0Kn[0Kf[0Ki[0Kg[0K[14G[13G[?25l$ git cinfi[0K[?25h[?25l$ git cin[0K[?25h[?25l$ git ci[0K[?25h[?25l$ git c[0K[?25h[?25l$ git[0K[7G[?25h[?25l$ gi[0K[?25h[?25l$[0K[3G[?25h[?25l$ git config --global user.email "hongjie.j.wang@gmail.com"[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@gmail.com[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@gmail.co[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@gmail.c[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@gmail.[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@gmail[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@gmai[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@gma[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@gm[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@g[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang[0K[?25h[?25l$ git config --global user.email "hongjie.j.wan[0K[?25h[?25l$ git config --global user.email "hongjie.j.wa[0K[?25h[?25l$ git config --global user.email "hongjie.j.w[0K[?25h[?25l$ git config --global user.email "hongjie.j.[0K[?25h[?25l$ git config --global user.email "hongjie.j[0K[?25h[?25l$ git config --global user.email "hongjie.[0K[?25h[?25l$ git config --global user.email "hongjie[0K[?25h[?25l$ git config --global user.email "hongji[0K[?25h[?25l$ git config --global user.email "hongj[0K[?25h[?25l$ git config --global user.email "hong[0K[?25h[?25l$ git config --global user.email "hon[0K[?25h[?25l$ git config --global user.email "ho[0K[?25h[?25l$ git config --global user.email "h[0K[?25h[?25l$ git config --global user.email "[0K[?25h[?25l$ git config --global user.email[0K[34G[?25h[33G[?25l$ git config --global user.emai[0K[?25h[?25l$ git config --global user.ema[0K[?25h[?25l$ git config --global user.em[0K[?25h[?25l$ git config --global user.e[0K[?25h[?25l$ git config --global user.[0K[?25hn[0Ka[0Km[0Ke[0K[33G[?25l$ git config --global user.name "[0K[?25hH[0K[?25l$ git config --global user.name "[0K[?25hH[0Ko[0Kn[0Kg[0Ki[0K[?25l$ git config --global user.name "Hong[0K[?25hj[0Ki[0Ke[0K[42G[?25l$ git config --global user.name "Hongjie W[0K[?25ha[0Kn[0Kg[0K"[0K[?25l$ git config --global user.name "Hongjie Wang[0K[?25h[?25l$ git config --global user.name "Hongjie Wan[0K[?25h[?25l$ git config --global user.name "Hongjie Wa[0K[?25h[?25l$ git config --global user.name "Hongjie W[0K[?25h[?25l$ git config --global user.name "Hongjie[0K[42G[?25h[41G[?25l$ git config --global user.name "Hongji[0K[?25h[?25l$ git config --global user.name "Hongj[0K[?25h[?25l$ git config --global user.name "Hong[0K[?25h[?25l$ git config --global user.name "Hon[0K[?25h[?25l$ git config --global user.name "Ho[0K[?25h[?25l$ git config --global user.name "H[0K[?25h[?25l$ git config --global user.name "[0K[?25hh[0Ko[0Kn[0Kg[0Kj[0Ki[0Ke[0K-[0Kw[0Ka[0Kn[0Kg[0K"[0K[?25l
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch main[0K[?25l
+Your branch is up to date with 'origin/main'.[0K
+[0K
+Changes to be committed:[0K
+  (use "git restore --staged <file>..." to unstage)[0K
+        [0;32mnew file:   airline yield management.R[0m[0K
+        [0;32mnew file:   alarm.R[0m[0K
+        [0;32mnew file:   bayesian-network.Rproj[0m[0K
+        [0;32mnew file:   causal inf exp1.R[0m[0K
+        [0;32mnew file:   causal inf exp2.R[0m[0K
+        [0;32mnew file:   creditcard.R[0m[0K
+        [0;32mnew file:   customer counts.R[0m[0K
+        [0;32mnew file:   dynamic regression.r[0m[0K
+        [0;32mnew file:   football bet information link.R[0m[0K
+        [0;32mnew file:   football bet optimal decision.R[0m[0K
+        [0;32mnew file:   football bet.R[0m[0K
+        [0;32mnew file:   instrument var.R[0m[0K
+        [0;32mnew file:   instrument var1.R[0m[0K
+        [0;32mnew file:   instrument var2.R[0m[0K
+        [0;32mnew file:   instrument var3.R[0m[0K
+        [0;32mnew file:   kantar.r[0m[0K
+        [0;32mnew file:   learning dynamic regression.R[0m[0K
+        [0;32mnew file:   marketing budget  influence diagram.R[0m[0K
+        [0;32mnew file:   optimal test size.R[0m[0K
+        [0;32mnew file:   real estate investment.Rmd[0m[0K
+        [0;32mnew file:   reliability test two stage.R[0m[0K
+        [0;32mnew file:   reliability test.R[0m[0K
+        [0;32mnew file:   sensor hidden markov.R[0m[0K
+        [0;32mnew file:   simple bayesian update.R[0m[0K
+        [0;32mnew file:   stress test.R[0m[0K
+        [0;32mnew file:   temp.R[0m[0K
+        [0;32mnew file:   test.R[0m[0K
+        [0;32mnew file:   wildcatter.R[0m[0K
+        [0;32mnew file:   wildcatter1.R[0m[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be committed)[0K
+        [0;31m.gitignore[0m[0K
+[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[10G[?25l$ git ad[0K[?25h[?25l$ git a[0K[?25h[?25l$ git[0K[7G[?25h[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25h[?25l$ git commit[0K[14G[?25h[13G[?25l$ git commi[0K[?25h[?25l$ git comm[0K[?25h[?25l$ git com[0K[?25h[?25l$ git co[0K[?25h[?25l$ git c[0K[?25h[?25l$ git[0K[7G[?25h[6G[?25l$ gi[0K[?25h[?25l$ g[0K[?25h[?25l$[0K[3G[?25h[?25l(reverse-i-search)`':[0K[23G[?25h[?25l(reverse-i-search)`c': git config --global user.name "hongjie-wang"[0K[28G[?25h[?25l(failed reverse-i-search)`cm': git config --global user.name "hongjie-wang"[0K[36G[?25h[?25l(failed reverse-i-search)`cm ': git config --global user.name "hongjie-wang"[0K[36G[?25h[?25l(failed reverse-i-search)`cmm': git config --global user.name "hongjie-wang"[0K[37G[?25h[?25l$ git config --global user.name "hongjie-wang"[0K[?25h[?25l$ git config --global user.email "hongjie.j.wang@gmail.com"[0K[?25h[?25l$ git commit -m "Initial commits"[0K[35G[?25h[?25l
+[0K[?25h[main 9026a86] Initial commits[0K[?25l
+ 29 files changed, 2244 insertions(+)[0K
+ create mode 100644 airline yield management.R[0K
+ create mode 100644 alarm.R[0K
+ create mode 100644 bayesian-network.Rproj[0K
+ create mode 100644 causal inf exp1.R[0K
+ create mode 100644 causal inf exp2.R[0K
+ create mode 100644 creditcard.R[0K
+ create mode 100644 customer counts.R[0K
+ create mode 100644 dynamic regression.r[0K
+ create mode 100644 football bet information link.R[0K
+ create mode 100644 football bet optimal decision.R[0K
+ create mode 100644 football bet.R[0K
+ create mode 100644 instrument var.R[0K
+ create mode 100644 instrument var1.R[0K
+ create mode 100644 instrument var2.R[0K
+ create mode 100644 instrument var3.R[0K
+ create mode 100644 kantar.r[0K
+ create mode 100644 learning dynamic regression.R[0K
+ create mode 100644 marketing budget  influence diagram.R[0K
+ create mode 100644 optimal test size.R[0K
+ create mode 100644 real estate investment.Rmd[0K
+ create mode 100644 reliability test two stage.R[0K
+ create mode 100644 reliability test.R[0K
+ create mode 100644 sensor hidden markov.R[0K
+ create mode 100644 simple bayesian update.R[0K
+ create mode 100644 stress test.R[0K
+ create mode 100644 temp.R[0K
+ create mode 100644 test.R[0K
+ create mode 100644 wildcatter.R[0K
+ create mode 100644 wildcatter1.R[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l
+[0K[?25hEnumerating objects: 31, done.[0K[?25l
+Counting objects: 100% (31/31), done.[0K
+Delta compression using up to 4 threads[0K
+Compressing objects:  23% (7/30)[0K[1G[?25hCompressing objects: 100% (30/30), done.[0K[?25l
+Writing objects: 100% (30/30), 22.19 KiB | 3.17 MiB/s, done.[0K
+Total 30 (delta 6), reused 0 (delta 0), pack-reused 0[0K
+[0K[?25hremote: Resolving deltas:  83% (5/6)[0K[?25lremote: Resolving deltas: 100% (6/6), done.[0K
+[0K[?25h[?25lTo https://github.com/hongjie-wang/bayesian-network[0K[1G[?25h[?25l
+   02e9a82..9026a86  main -> main[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch main[0K[?25l
+Your branch is up to date with 'origin/main'.[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be committed)[0K
+        [0;31m.gitignore[0m[0K
+[0K
+nothing added to commit but untracked files present (use "git add" to track)[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ n[0K[?25ho[0K[?25l$ n[0K[?25ha[0Kn[0Ko[0K[?25l
+[0K[?25h[0m[1;1H[2J[0;37;97;44m  GNU nano 5.4                          New Buffer[0K[?25l
+[0m[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+                  [0;37;97;42m[ Welcome to nano.  For basic help, type Ctrl+G. ][0m[0K
+[0;36m^G[0m [0;32mHelp[0m       [0;36m^O[0m [0;32mWrite Out[0m  [0;36m^W[0m [0;32mWhere Is[0m   [0;36m^K[0m [0;32mCut[0m        [0;36m^T[0m [0;32mExecute[0m    [0;36m^C[0m [0;32mLocation[0m[0K
+[0;36m^X[0m [0;32mExit[0m       [0;36m^R[0m [0;32mRead File[0m  [0;36m^\[0m [0;32mReplace[0m    [0;36m^U[0m [0;32mPaste[0m      [0;36m^J[0m [0;32mJustify[0m    [0;36m^_[0m [0;32mGo To Line[0m[0K[12A[?25h[0m[1;1H[2J[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K[?25l
+$ git status[0K
+On branch main[0K
+Your branch is up to date with 'origin/main'.[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be committed)[0K
+        [0;31m.gitignore[0m[0K
+[0K
+nothing added to commit but untracked files present (use "git add" to track)[0K
+[0K
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$ nano[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hbash: status: command not found[0K[?25l
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch main[0K[?25l
+Your branch is up to date with 'origin/main'.[0K
+[0K
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committed)[0K
+  (use "git restore <file>..." to discard changes in working directory)[0K
+        [0;31mmodified:   README.md[0m[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be committed)[0K
+        [0;31m.gitignore[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git commit -a")[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add "[0K[?25hr[0Ke[0Ka[0Kd[0K[?25l$ git add "rea[0K[?25h[?25l$ git add "re[0K[?25h[?25l$ git add "r[0K[?25h[?25l$ git add "[0K[?25hR[0KE[0KA[0KD[0K.[0Km[0Kd[0K"[0K[?25l$ git add "READ.md[0K[?25h[?25l$ git add "READ.m[0K[?25h[?25l$ git add "READ.[0K[?25h[?25l$ git add "READ[0K[?25h[?25l$ git add "REA[0K[?25h[?25l$ git add "RE[0K[?25h[?25l$ git add "R[0K[?25h[?25l$ git add "[0K[?25h[?25l$ git add[0K[11G[?25h[?25l$ git add r[0K[?25h[?25l$ git add[0K[11G[?25h[?25l
+.gitignore  README.md[0K
+[0K
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$ git add[0K[11G[?25h[?25l$ git add R[0K[?25hEADME.md[0K[21G[?25l
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0K[?25l
+[0K[?25hgit: 'statu' is not a git command. See 'git --help'.[0K[?25l
+[0K
+The most similar commands are[0K
+        status[0K
+        stage[0K
+        stash[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch main[0K[?25l
+Your branch is up to date with 'origin/main'.[0K
+[0K
+Changes to be committed:[0K
+  (use "git restore --staged <file>..." to unstage)[0K
+        [0;32mmodified:   README.md[0m[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be committed)[0K
+        [0;31m.gitignore[0m[0K
+[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25hi[0Kn[0Ki[0Kt[0Ki[0Ka[0Kl[0K[?25l$ git commit -m "initia[0K[?25h[?25l$ git commit -m "initi[0K[?25h[?25l$ git commit -m "init[0K[?25h[?25l$ git commit -m "ini[0K[?25h[?25l$ git commit -m "in[0K[?25h[?25l$ git commit -m "i[0K[?25h[?25l$ git commit -m "[0K[?25hr[0Ke[0Kv[0Ki[0Ks[0Ke[0K"[0K[?25l
+[0K[?25h[main f1a7537] revise[0K[?25l
+ 1 file changed, 2 insertions(+)[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch main[0K[?25l
+Your branch is ahead of 'origin/main' by 1 commit.[0K
+  (use "git push" to publish your local commits)[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be committed)[0K
+        [0;31m.gitignore[0m[0K
+[0K
+nothing added to commit but untracked files present (use "git add" to track)[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l
+[0K[?25hEnumerating objects: 5, done.[0K[?25l
+Counting objects: 100% (5/5), done.[0K
+Delta compression using up to 4 threads[0K
+Compressing objects: 100% (3/3), done.[0K
+Writing objects: 100% (3/3), 326 bytes | 108.00 KiB/s, done.[0K
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0[0K
+[0K[?25hremote: Resolving deltas: 100% (1/1), completed with 1 local object.[0K[?25l
+[0K[?25hTo https://github.com/hongjie-wang/bayesian-network[0K[?25l
+   9026a86..f1a7537  main -> main[0K
+[0K[?25h[?25l
+[0;32mhongjie@hongjie-PC [0;35m [0;33m~/Documents/data_science/bayesian-network[0;36m (main)[0m[0K
+$[0K[3G[?25h

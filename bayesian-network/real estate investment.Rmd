@@ -1,0 +1,197 @@
+---
+title: "influence diagram"
+author: "Hongjie Wang"
+date: "July 4, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We implement a simple influence diagram. You decide to buy a house. The prior probability the house is good is 70%. If it turns out to be good, you can renovate and make $5000 profit. Otherwise, you lose $3000. You have the option to perform an inspection, which is not perfect. The following diagram is the network we want to model.
+
+![Bayesian Network](realestate.jpg)
+
+Notice there are two dotted links. Report provides information to purchase decision.
+The link between inspect and buyhouse is simply indicating the sequence of event. 
+We have two decisions, inspect and buyhouse. 
+
+We start with the baseline model where both decisions are random. Furthermore, we do not have the information link in our model. In my opinion, this is a conceptual link. 
+
+
+```{r model}
+
+rm(list = ls())
+library(HydeNet)
+net<-HydeNetwork(~+condition+inspect+report|condition*inspect+U1|inspect+buy+U2|condition*buy)
+
+net<-setNode(net,node=condition,nodeType ="dbern",p=0.7)
+
+net<-setNode(net,node=inspect,nodeType ="dbern",p=0.5)
+
+# use this approch to enter conditional prob direclty
+
+cp.report=data.frame(inspect=as.factor(c(1,1,1,1,1,1,0,0,0,0,0,0)),
+               condition=as.factor(c(1,1,1,0,0,0,1,1,1,0,0,0)),
+               report=as.factor(c("g","b","u","g","b","u",
+                                  "g","b","u",
+                                  "g","b","u")),
+               
+               prob=c(0.95,0.05,0,0.1,0.9,0,0,0,1,0,0,1))
+
+report.h=cpt(report~inspect+condition,data=cp.report,wt=cp.report$prob)
+
+net<-setNodeModels(net,report.h)
+
+net<-setNode(net,U1, nodeType = "determ",define=fromFormula(),
+             nodeFormula = U1~ifelse(inspect==1,-600,0))
+
+net<-setNode(net,node=buy,nodeType ="dbern",p=0.5)
+
+net<-setNode(net,U2, nodeType = "determ",define=fromFormula(),
+             nodeFormula = U2~ifelse(buy==1 && condition==1,5000,
+                                     ifelse(buy==1 && condition==0,-3000,0)))
+
+
+
+
+net<-setDecisionNodes(net,inspect)
+net<-setUtilityNodes(net,U1)
+net<-setDecisionNodes(net,buy)
+net<-setUtilityNodes(net,U2)
+
+```
+
+
+We can plot the network. Notice, we do not have the information link as an explicit one. 
+A programming note, this R package has bugs. Double check the simulation on simple models first, especially if you have factor instead of numbers in categorical variables. They do not seem o translate into Jags corretly when it comes to conditional probability table. 
+
+``` {r net}
+plot(net)
+
+
+writeNetworkModel(net,pretty=TRUE)
+
+```
+Now we are ready to simulate the data. 
+
+```{r simulation}
+evidence=NULL
+
+trackedVars<-c("inspect","condition","report","U1","buy","U2")
+
+
+compiledNet<-compileJagsModel(net,data=evidence,n.chain=3,n.adapt=5000)
+post<-HydeSim(compiledNet,variable.names =trackedVars,n.iter=10000)
+dplyr::sample_n(post,10)
+```
+
+Suppose we want to know if we should perform an inspection. We have two decision variables (inspect and buy). Therefore, the optimal decision for inspection depends on buying decision. For now, we do not have a pre-specified rule (for example, we will buy if the report comes back positve). We first start with understaning the joint decisions by enumerating inspecting, reporting (the information link) and buying decision.
+
+``` {r joint policy}
+
+history=data.frame()
+
+evidence=list(inspect=1,report="g",buy=0)
+compiledNet<-compileJagsModel(net,data=evidence,n.chain=3,n.adapt=5000)
+post<-HydeSim(compiledNet,variable.names =trackedVars,n.iter=10000)
+mean(post$U1+post$U2)
+history=rbind(history,cbind(inspect=1,report="g",buy=0,profit=mean(post$U1+post$U2)))
+
+evidence=list(inspect=1,report="g",buy=1)
+compiledNet<-compileJagsModel(net,data=evidence,n.chain=3,n.adapt=5000)
+post<-HydeSim(compiledNet,variable.names =trackedVars,n.iter=10000)
+mean(post$U1+post$U2)
+history=rbind(history,cbind(inspect=1,report="g",buy=1,profit=mean(post$U1+post$U2)))
+
+evidence=list(inspect=1,report="b",buy=0)
+compiledNet<-compileJagsModel(net,data=evidence,n.chain=3,n.adapt=5000)
+post<-HydeSim(compiledNet,variable.names =trackedVars,n.iter=10000)
+mean(post$U1+post$U2)
+history=rbind(history,cbind(inspect=1,report="b",buy=0,profit=mean(post$U1+post$U2)))
+
+evidence=list(inspect=1,report="b",buy=1)
+compiledNet<-compileJagsModel(net,data=evidence,n.chain=3,n.adapt=5000)
+post<-HydeSim(compiledNet,variable.names =trackedVars,n.iter=10000)
+mean(post$U1+post$U2)
+history=rbind(history,cbind(inspect=1,report="b",buy=1,profit=mean(post$U1+post$U2)))
+
+evidence=list(inspect=0,report="u",buy=0)
+compiledNet<-compileJagsModel(net,data=evidence,n.chain=3,n.adapt=5000)
+post<-HydeSim(compiledNet,variable.names =trackedVars,n.iter=10000)
+mean(post$U1+post$U2)
+history=rbind(history,cbind(inspect=0,report="u",buy=0,profit=mean(post$U1+post$U2)))
+
+evidence=list(inspect=0,report="u",buy=1)
+compiledNet<-compileJagsModel(net,data=evidence,n.chain=3,n.adapt=5000)
+post<-HydeSim(compiledNet,variable.names =trackedVars,n.iter=10000)
+mean(post$U1+post$U2)
+history=rbind(history,cbind(inspect=0,report="u",buy=1,profit=mean(post$U1+post$U2)))
+
+history
+```
+
+In inflence descision, the expected utility of inspect=1 is not integrating over all possible subsequent decisions. If that is the case, we could have just set evidence inpsect=1 and 0 and get the expected values. It would give us the right answer. Rather, the expected utitlity is the based on optimal decisions subsequently. Therefore, we need to set up the optimal decision for buy first. As one can see from the above, we should always buy unless the report comes back bad. 
+
+We implement this rule and re-run the network. 
+
+``` {r inspectsol}
+
+rm(list = ls())
+library(HydeNet)
+net<-HydeNetwork(~+condition+inspect+report|condition*inspect+U1|inspect+buy|report+U2|condition*buy)
+
+net<-setNode(net,node=condition,nodeType ="dbern",p=0.7)
+
+net<-setNode(net,node=inspect,nodeType ="dbern",p=0.5)
+
+# use this approch to enter conditional prob direclty
+
+cp.report=data.frame(inspect=as.factor(c(1,1,1,1,1,1,0,0,0,0,0,0)),
+               condition=as.factor(c(1,1,1,0,0,0,1,1,1,0,0,0)),
+               report=as.factor(c("g","b","u","g","b","u",
+                                  "g","b","u",
+                                  "g","b","u")),
+               
+               prob=c(0.95,0.05,0,0.1,0.9,0,0,0,1,0,0,1))
+
+report.h=cpt(report~inspect+condition,data=cp.report,wt=cp.report$prob)
+
+net<-setNodeModels(net,report.h)
+
+net<-setNode(net,U1, nodeType = "determ",define=fromFormula(),
+             nodeFormula = U1~ifelse(inspect==1,-600,0))
+
+#net<-setNode(net,node=buy,nodeType ="dbern",p=0.5)
+
+net<-setNode(net,buy,nodeType="determ",define=fromFormula(),
+             nodeFormula = buy ~ifelse(report=="b",0,1))
+
+net<-setNode(net,U2, nodeType = "determ",define=fromFormula(),
+             nodeFormula = U2~ifelse(buy==1 && condition==1,5000,
+                                     ifelse(buy==1 && condition==0,-3000,0)))
+
+
+net<-setDecisionNodes(net,inspect)
+net<-setDecisionNodes(net,buy)
+net<-setUtilityNodes(net,U1)
+net<-setUtilityNodes(net,U2)
+
+plot(net)
+
+trackedVars<-c("inspect","condition","report","U1","buy","U2")
+
+policies<-data.frame(inspect=c(0,1))
+compiledNets<-compileDecisionModel(net,policyMatrix = policies)
+samples<-lapply(compiledNets,HydeSim,variable.names=trackedVars,n.iter=20000)
+lapply(samples,function(l) mean(l$U2+l$U1))
+
+
+```
+Notice, in this case, we created a link from report to buy since buy decision now depends on reporting.  
+Given we assume buy decision (based on report) is optimal, we notice the expected utility for inspection is higher. So, it is optimal to inspect. 
+
+Typically, one uses a decision tree approach to solve this problem, like the one below. But you should see its connection to Markov Decision Process (backward solving).
+
+![decision tree](decisiontree.jpg)
