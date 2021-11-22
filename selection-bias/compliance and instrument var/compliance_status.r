@@ -3,6 +3,8 @@ library(tidyverse)
 nbr<-100000
 status<-c("compliers","never takers","always takers","defiers")
 mydata<-data.frame(status=sample(status,nbr,replace=TRUE,prob=c(0.2,0.3,0.5,0)))
+
+# potential outcomes for each person based on the segment 
 mydata<-mydata%>%
   mutate(status=as.factor(status),
          xbeta.base=-0.5+0.4*(status=="compliers")+0.2*(status=="never takers")
@@ -15,6 +17,8 @@ mydata<-mydata%>%
          potential.y1=rbinom(nbr,1,prob))%>%
   select(-xbeta.base)
 
+# gives what the causal effects would have been if we observed them
+
 mydata%>%group_by(status)%>%
   summarize(meanp0=mean(prob.base),
             meanp1=mean(prob),
@@ -23,8 +27,7 @@ mydata%>%group_by(status)%>%
             meany1=mean(potential.y1),
             diffy=meany1-meany0)
 
-
-
+# notice intent is the random assignment 
 mydata<-mydata%>%
   mutate(intent=rbinom(nbr,1,0.5),
          treat=ifelse(status=="always takers",1,
