@@ -1,0 +1,118 @@
+---
+title: "causal inference"
+author: "Hongjie Wang"
+date: "November 24, 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+We focus on a narrowed defined problem. Suppose we know the DAG corresponding to some data (either based on theory, past practice or assumptions), how do we obtain the causal effects by running regression models based on the DAG.
+
+Regression (or other potentially more flexible and robust approach) is the mechanism from which we can obtain the estimated causal effect. The key here is the model specification. This process can be complicated. In our current context, we assume we know the DAG. The problem becomes simpler. We just need to make sure our model is specified in the way that is free of confounding factors. Given the DAG, this s implies to using the back door criteria introduced by Pearl. 
+
+It???s sufficient to control for a set of variables, Z, to eliminate non-causal
+dependence for the effect of X on Y in a causal graph, G, if
+1. no variable in Z is a descendant of X, and
+2. Z blocks every path between X and Y that contains an arrow into X
+
+We First simulate data based on a simple DAG.
+
+```{r cars}
+rm(list = ls())
+
+
+# one side noncompliace makes always takers a complier
+set.seed(12345)
+
+library(tidyverse)
+
+library(HydeNet)
+
+
+net<-HydeNetwork(~
+                   x3+
+                   x4+
+                   x5+
+                   S|x3*x4+
+                   y|S*x4*x5)
+
+plot(net)
+                 
+
+net<-setNode(net,x3,nodeType = "dnorm", mu=0,tau=1)
+net<-setNode(net,x4,nodeType = "dnorm", mu=0,tau=1)
+net<-setNode(net,x5,nodeType = "dnorm", mu=0,tau=1)
+
+
+
+net<-setNode(net,S,nodeType = "dnorm", mean="100+x3+0.2*x4",
+             sd="1")
+
+net<-setNode(net,y,nodeType = "dnorm", mean="500+3*S-1.3*x4+10*x5",
+             sd="1")
+             
+writeNetworkModel(net,pretty=TRUE)
+
+
+trackedVars<-c("x3","x4","x5","S","y")
+evidence=NULL
+compiledNet<-compileJagsModel(net,data=evidence,n.chain=3,n.adapt=5000)
+post<-HydeSim(compiledNet,variable.names =trackedVars,n.iter=10000)
+dplyr::sample_n(post,10)
+
+```
+
+## Including Plots
+
+Suppose we want to understand the causal linkage between x4 and S. We know based on our simulation that the conditional dependency is 100+x3+0.2*x4. In general,
+such conditional relationship needs not be the same as the causal relationship between two nodes. Indeed, causal linkages exist among nodes where there is no edge linking them. But in this case, this conditional dependency clearly is the same as the causal effect. 
+
+Our first step would be to run a regression (assuming all linear) on x4 only.
+
+```{r pressure, echo=FALSE}
+lm(S~x4, data=post)
+```
+We recovered the causal effect as one would expect. In this case, there is nothing additional to adjust. If we add x3 and x5, it will not change the effect of x4. 
+
+```{r b, echo=FALSE}
+lm(S~x4+x3+x5, data=post)
+```
+
+It does not mean that when there is no confounder (and no need to adjust), we could just arbitrarily add other variables. For example, if we add y in the equation, regression gives us strange results. 
+
+
+```{r c, echo=FALSE}
+lm(S~x4+y+x5+x3, data=post)
+```
+What is the causal effect of x4 on y? 
+We start with a simple regression again. 
+
+```{r d, echo=FALSE}
+lm(y~x4, data=post)
+```
+Notice the coefficient for x4 is negative, which is different from 500+3*S-1.3*x4+10*x5. This is because the regression gives the total causal effect of x4 on y. x4 impacts S, which impacts y as well. 
+
+The question is- should we introduce other variables? There is only one path from x4 to y that includes S. The back door rule states that we should not include descendants of x4. If we do include S, the resulting regression coefficient for x4 is no longer the total causal effect of x4 on y anymore.
+
+```{r e, echo=FALSE}
+lm(y~x4+S, data=post)
+```
+
+What is the causal effect of S on y? 
+We start with univariate regression first. 
+```{r f, echo=FALSE}
+lm(y~S, data=post)
+```
+
+According to back door rules, x4 is in the path between S and y and it points to S. Therefore, x4 is a confounder that should be controlled. 
+
+```{r g, echo=FALSE}
+lm(y~x4+S, data=post)
+```
+
+
+

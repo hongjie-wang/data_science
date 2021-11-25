@@ -1,0 +1,126 @@
+---
+title: "surrogate illustration"
+author: "Hongjie Wang"
+date: "November 24, 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+Often, we want to make decisions to maximize long-term outcome that we do not necessarily observe in experimental setting. It turns out that if we can find surrogate, then under reasonable assumptions, optimizing decisions to maximize surrogates would lead to maximizing the long-term outcome. 
+
+Yang et al.provided a detailed description of the approach, some proofs as well as a field study to show the validity of the approach. 
+
+Athey et al. provided a comprehensive theoretical framework, as well as a case study in social study application. 
+
+We will not repeat their work and encourage others read their research paper. Instead, we use an illustrative simulation study to show the salient points. 
+
+First, we set up the simulation.
+
+```{r a, echo=TRUE}
+rm(list = ls())
+library(tidyverse)
+library(HydeNet)
+
+set.seed(12345)
+net<-HydeNetwork(~targeting+
+                   x1+
+                   x2+
+                   x3+
+                   x4+
+                   x5+
+                   prob.response|x1*x2+
+                   response|prob.response*targeting+
+                   S|response*x2*x3*x4+
+                   y|S*x4*x5)
+                 
+
+net<-setNode(net,targeting,nodeType="dbern",p=0.2)
+net<-setNode(net,x1,nodeType = "dnorm", mu=0,tau=1)
+net<-setNode(net,x2,nodeType = "dnorm", mu=0,tau=1)
+net<-setNode(net,x3,nodeType = "dnorm", mu=0,tau=1)
+net<-setNode(net,x4,nodeType = "dnorm", mu=0,tau=1)
+net<-setNode(net,x5,nodeType = "dnorm", mu=0,tau=1)
+
+net<-setNode(net,prob.response,"determ",define=fromFormula(),
+             nodeFormula = prob.response~ilogit(-4+x1+0.5*x2))
+net<-setNode(net,response,nodeType ="dbern", prob="targeting*prob.response") 
+
+net<-setNode(net,S,nodeType = "dnorm", mean="response*(100-0.6*x2+x3+0.2*x4)",
+             sd="1")
+
+net<-setNode(net,y,nodeType = "dnorm", mean="500+3*S-1.3*x4+50*x5",
+             sd="1")
+             
+writeNetworkModel(net,pretty=TRUE)
+
+
+trackedVars<-c("targeting","prob.response","response",
+               "x1","x2","x3","x4","x5","S","y")
+evidence=NULL
+compiledNet<-compileJagsModel(net,data=evidence,n.chain=3,n.adapt=5000)
+post<-HydeSim(compiledNet,variable.names =trackedVars,n.iter=10000)
+
+plot(net)
+
+```
+
+Following Yang, we introduce the concept of policy as a mapping of treatments to a population. For example, using some models to assign treatments (offers) to a set of customer would be a policy. This policy will lead to an expected value. This expected value depends on the outcome we optimize. Our goal is to design a policy so as to maximize that expected long term value. Under reasonable assumptions, the policy that maximizes the observed  surrogate maximizes the long-term outcome.
+
+It is important to note the difference and connection between designing a policy to maximize the long-term value vs. finding customers with the highest long-term values. The latter could be a component for the policy.
+
+We use the node "targeting" to denote our policy. In our case, our policy is to randomly mail 20% of the customers. This clearly is not likely to be the optimal policy. But this is not our objective here. We want to show that the valuation of the policy based on surrogate is the same as based on the long-term value.
+Specifically, let S denote the surrogate and y denote the long-term value. Let $y=f(S,X)+error$ denote the relationship between S and y. $f(S,X)$ predicts y. We show the policy's valuation on $f(S,X)$ is the same as y. If we follow this logic loosely, it follows that if we find a policy to maximize $f(S,X)$ then,it would maximize y.  
+
+
+In our simulation, we have deliberately introduced overlapping covariates. Finally, notice x5 is one of the biggest drivers for y. This is to mimic reality. if y is some sort of long-term value, then, majority of it is likely to be caused by other factors outside our short-term policy space. There are three key pieces in this setting.
+
+1. A valid surrogate. A surrogate is like a mediator in a causal graph. We need to identify a set of intermediary variables that are caused by our actions. And the impact of our actions to the long-term value y is through these surrogates. Once again, we are not suggesting long-term value is entirely caused by our action. Not at all. Our action may have very little effect on the long-term value. As in any empirical study, there is no way to make sure we have captured all surrogates. That is not a problem in practice, as long as we have captured directionally important ones. For our simulation, we assume there is only one node for surrogate. In reality, there will be several such nodes and their impacts on y may not always be positive.  
+
+2. Develop $f(S,X)$ where X are other covariates. This could be developed using observational data in a different context. One needs to be careful with any selection bias to improve the chance of satisfying comparability assumption. Any reasonable statistical approach can be used. But the goal here is NOT to predict y most accurately. Rather, it is trying to "approximate" the causal linkage (as weak as it may be) between S and y. In this context, you want to make sure the model is concise. The role of S is clear and sensible and only include X if it serves a purpose (for example, avoid confounding). 
+
+3. Make sure the linkage between action and S is causal. Search and learn to maximize $f(S,X)$. 
+
+
+
+
+For our data, we used the data to perform a regression to predict y using S. 
+We included X4 since it is a confounder. Notice we did not include X5. It is not absolutely necessary. In reality, we might not even know what X5 is. 
+```{r b, echo=TRUE}
+post%>%
+  filter(targeting==0)%>%
+  lm(y~S+x4, data=.)
+```
+
+We know evaluate our policy (randomly targeting) by looking at the difference between people who were treated vs. not. Notice the value for the predicted y is the same as the actual y. 
+```{r c, echo=TRUE}
+post%>%
+  mutate(predicted.y=500.058+2.668*S-1.146*x4)%>%
+  group_by(targeting)%>%
+  summarise(y=mean(y),
+            s=mean(S),
+            response=mean(response),
+            predicted.y=mean(predicted.y))
+```
+
+
+References:
+
+1.THE SURROGATE INDEX: COMBINING SHORT-TERM PROXIES TO
+ESTIMATE LONG-TERM TREATMENT EFFECTS MORE RAPIDLY AND PRECISELY
+by Susan Athey, Raj Chetty, Guido W. Imbens, Hyunseung Kang
+Working Paper 26463
+http://www.nber.org/papers/w26463
+
+2. Targeting for long-term outcomes 
+by  Jeremy Yang,  Dean Eckles,  Paramveer Dhillon,  and Sinan Aral
+MIT Working Paper
+
+3.Bootstrap Thompson Sampling and Sequential Decision Problems in the
+Behavioral Sciences
+by Dean Eckles and Maurits Kaptein
+
+4. Surrogates, Gaussian Process Modeling, Design and Optimization for Applied Science by Robert Gramacy, CRP Press.
